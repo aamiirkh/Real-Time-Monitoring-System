@@ -30,8 +30,6 @@ if __name__ == '__main__':
 			size = m.group('size')
 			Referer = m.group('Referer')
 			User_agent = m.group('User_agent')
-			body = re.search(".*?", request)
-			print(body)
 			connection = mariadb.connect(user=username, password=password, host="127.0.0.1", port=3306, database="parse")
 			cursor = connection.cursor()
 			cursor.execute("INSERT INTO logs(ip, time, request, status, size, referer, user_agent) VALUES (?, ?, ?, ?, ?, ?, ?)", (ip, time,request, status, size, Referer, User_agent));
