@@ -34,7 +34,7 @@ if __name__ == '__main__':
 			cursor = connection.cursor()
 			cursor.execute("INSERT INTO logs(ip, time, request, status, size, referer, user_agent) VALUES (?, ?, ?, ?, ?, ?, ?)", (ip, time,request, status, size, Referer, User_agent));
 			connection.commit()
-			if(re.match(".*(%3C)*(%3E).*", request)):
+			if(re.match(".*(%3C)*(%3E).*", request)):  # xss script 
 			    score += 2
 			if score >= 10:
 			    print("Anomaly Detected.")
